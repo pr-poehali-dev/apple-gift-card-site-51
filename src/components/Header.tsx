@@ -1,6 +1,10 @@
 import { Link } from "react-router-dom";
+import { useCart } from "@/contexts/CartContext";
+import Icon from "@/components/ui/icon";
 
 const Header = () => {
+  const { itemCount } = useCart();
+
   return (
     <header className="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-gray-100">
       <nav className="max-w-6xl mx-auto px-6 py-4">
@@ -28,6 +32,17 @@ const Header = () => {
             >
               Инструкции
             </Link>
+
+            <div className="relative">
+              <button className="p-2 text-gray-700 hover:text-gray-900 transition-colors">
+                <Icon name="ShoppingCart" size={24} />
+                {itemCount > 0 && (
+                  <span className="absolute -top-1 -right-1 bg-blue-500 text-white text-xs rounded-full h-5 w-5 flex items-center justify-center font-medium">
+                    {itemCount}
+                  </span>
+                )}
+              </button>
+            </div>
           </div>
         </div>
       </nav>

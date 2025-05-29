@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
+import { useCart } from "@/contexts/CartContext";
 
 interface ProductCardProps {
   amount: number;
@@ -7,6 +8,12 @@ interface ProductCardProps {
 }
 
 const ProductCard = ({ amount, isPopular = false }: ProductCardProps) => {
+  const { addItem } = useCart();
+
+  const handleAddToCart = () => {
+    addItem(amount);
+  };
+
   return (
     <Card
       className={`relative p-8 text-center bg-white border transition-all duration-300 hover:shadow-lg hover:-translate-y-1 ${
@@ -37,10 +44,11 @@ const ProductCard = ({ amount, isPopular = false }: ProductCardProps) => {
       </div>
 
       <Button
+        onClick={handleAddToCart}
         className="w-full bg-blue-500 hover:bg-blue-600 text-white font-medium py-3 rounded-xl transition-colors"
         size="lg"
       >
-        Купить сейчас
+        Добавить в корзину
       </Button>
     </Card>
   );
