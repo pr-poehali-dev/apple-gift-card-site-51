@@ -12,8 +12,8 @@ const CartModal = ({ isOpen, onClose }: CartModalProps) => {
   if (!isOpen) return null;
 
   return (
-    <div className="fixed inset-0 z-50 bg-black/50 backdrop-blur-sm">
-      <div className="fixed right-0 top-0 h-full w-full max-w-md bg-white shadow-xl">
+    <div className="fixed inset-0 z-50 bg-black/70 backdrop-blur-sm">
+      <div className="fixed right-0 top-0 h-full w-full max-w-md bg-white shadow-2xl border-l border-gray-200">
         <div className="flex items-center justify-between p-6 border-b">
           <h2 className="text-xl font-semibold">Корзина</h2>
           <button
