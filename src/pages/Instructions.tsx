@@ -53,7 +53,7 @@ const Instructions = () => {
                 </CardTitle>
               </CardHeader>
               <CardContent className="ml-16">
-                <p className="text-gray-600">{step.description}</p>
+                <p className="text-red-700">{step.description}</p>
               </CardContent>
             </Card>
           ))}
